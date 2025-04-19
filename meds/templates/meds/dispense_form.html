@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dispensar Medicamento</title>
+</head>
+<body>
+    <h2>Dispensar {{ medication.medication }} - {{ medication.description }}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="quantity">Cantidad:</label>
+        <input type="number" name="quantity" required><br><br>
+
+        <label for="patient_name">Nombre del paciente:</label>
+        <input type="text" name="patient_name" required><br><br>
+
+        <button type="submit">Confirmar Dispensación</button>
+    </form>
+
+    <a href="{% url 'meds:list_medications' %}">Cancelar y volver</a>
+</body>
+</html>
