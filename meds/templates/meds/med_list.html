@@ -1,14 +1,18 @@
-<h1>Lista de Medicamentos</h1>
-
-<ul>
-  {% for med in medications %}
-    <li>
-      {{ med.medication }} - {{ med.description }} (Stock: {{ med.num_units_in_stock }})
-      <a href="{% url 'meds:dispense_form' med.id %}">Dispensar</a>
-    </li>
-  {% empty %}
-    <li>No hay medicamentos en la base de datos.</li>
-  {% endfor %}
-</ul>
-
-<a href="{% url 'meds:home' %}">Volver al inicio</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Medicamentos</title>
+</head>
+<body>
+    <h1>Lista de Medicamentos</h1>
+    <ul>
+        {% for med in medications %}
+            <li>
+                {{ med.medication }} - {{ med.description }} (Stock: {{ med.num_units_in_stock }})
+                <a href="{% url 'meds:dispense_form' med.id %}">Dispensar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'meds:home' %}">Volver al inicio</a>
+</body>
+</html>
